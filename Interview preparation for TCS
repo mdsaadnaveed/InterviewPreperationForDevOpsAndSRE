@@ -1,0 +1,50 @@
+What command line tools have you used to check CPU, memory, or disk usage when the GUI isn't available
+tasklist show the runing process along with memory uses
+wmic os get FreePhysicalMemory
+wmic cpu get loadpercentage     quick cpu load check
+systeminfo       provide total available memory
+fsutil volume disk free C: details free space of drive
+
+
+
+That's a good approach. Have you had experience managing services or startup programs through the Services console or Task Scheduler?
+Using service console service.msc we can start stop and resart the service and for command line we have 
+sc query sc start sc stop this is for command line
+powershell Get-service Start-service Stop-service 
+
+
+For start up and scheduletask 
+for cmd line we have schtasks /query, schtask /create  schtask /run   schtask /delete
+and for powershell Register-schedulerTask Start-SchedulerTask and Get-SchedulerTask
+
+
+
+Let me ask you about user management. How would you handle adding a new user to a Windows domain and setting up their permissions?
+Create a new user using active directory user and computer navigate to the correct organization unit
+new user details user name upn password must change the password while nex login 
+assign group membership shared folder application and network resource 
+configure mailbox and confirm user can login or not 
+
+
+if a user complained that they couldn't access a shared folder they should have permission to, how would you troubleshoot that?
+ask the exact error msg access denied or path not found verify the path check other user can access the same folder 
+ping server to confirm reahability or try access via IP address or check user have the correct permission and 
+ntfs permission or logoff and login back or for policy restriction gpresult /r
+
+
+Let me ask you about updates and patching. How do you typically manage Windows updates in a production environment?
+WSUS Windows server update services or microsoft end point configuration manager 
+approved and deployed update control which system recevie which update or monitor 
+application compatibilty system stability and promote after successful testing 
+phases deployment pilot limited and full deployment 
+review log dash boards track update and status failuer
+
+
+Yeah, so if a critical patch came out and you needed to apply it urgently to production servers, how would you handle that while minimizing downtime?
+access argency and impact affected system severity which production system are impacted internet facing or critical system first
+fast track testing small pilot batch and then roll out full production 
+scheduler controller performance update in the lowest usage hours
+ensure rollback readlines take vm snapshot and confirm backup
+target only affected system dont do any change
+
+
