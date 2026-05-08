@@ -1,0 +1,22 @@
+Can you tell me about a specific project or situation where you had to manage or troubleshoot something on AWS or Azure? What was the issue and how did you approach it?
+Yes In one sitution i have work on troubleshooting and windows application server hosted on aws where user report the applicaton is becoming very slow and some unable to access
+first thing  cpu and memory usage on taks manager second cmd on power shell tasklist and get-process 
+and also wmic logicaldisk get size,freespace,caption if the cpu usage is was high because one background process consume resource so i review event logs and and app service.msc
+one task was runing repeat due to fail previous execution cause multiple instance at same time to resolve stop the duplicated process 
+correct the schedule task restart the affected application set alerts for for cup high usage or resign the ec2 instance 
+
+Did you end up restarting that process or service, or did you take a different action to resolve it?
+after identify the root cause i stopped the duplicated background process 
+restart the related windows service to stablize the application or system
+do not start the new instance if a task is already runing cpu utilization from cloudwatch no new duplicate process is created
+
+
+you're managing infrastructure across multiple environments or teams, how do you typically handle change management or updates to avoid causing similar incidents?
+I tried struture change management process 
+proper change plaining identify affected system and dependecies prepare implementation and roll back 
+schedule change during approved maintenance windows 
+documentation and approval what is changing why the change is needed rollback procedure 
+automation and standardization 
+powershell scripts iaac standard deployment procesures 
+
+Have you worked with any infrastructure as code tools like Terraform or CloudFormation, or do you primarily use scripting for automation?
